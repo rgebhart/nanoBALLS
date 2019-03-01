@@ -14,9 +14,9 @@ __Failed End Condition:__ User receives inaccurate edge detection or no image at
 
 #### EXTENSIONS
 1. User inputs a file of incompatible type.
-  * Asks user for file of proper type
+   * Asks user for file of proper type
 2. Image accuracy is below threshold.
-  * Asks user for cleaner image  
+   * Asks user for cleaner image  
   
 ---
 ## Use Case 2: Image Analysis
@@ -28,14 +28,14 @@ __Failed End Condition:__ User receives inaccurate results or no results at all.
 #### COMPONENTS
 1. GUI asks user if they'd like SEM image characteristics.
 2. Program calculates the following characteristics:
-  * Average particle size
-  * Particle size distribution
-  * Measure of how spherical or elliptical a particle is
-  * Particle roughness
+   * Average particle size
+   * Particle size distribution
+   * Measure of how spherical or elliptical a particle is
+   * Particle roughness
 3. Checks values for accuracy.
 4. Returns table of values to the user.
 
 #### EXTENSIONS
 1. Value accuracy is below threshold.
-  * Asks user for cleaner image.
-  * Returns values that are above threshold.
+   * Asks user for cleaner image.
+   * Returns values that are above threshold.
