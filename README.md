@@ -1,4 +1,4 @@
-![alt](https://i.imgur.com/bVjtiMe.jpg)  
+![alt](https://i.imgur.com/5IlGL9R.jpg)  
 ## Package for SEM Image and Particle Analysis
 This package is a tool to help analyze and learn the characteristics of particles captured in an SEM image. It takes an SEM image (supported file types listed [here](https://docs.opencv.org/3.0-beta/modules/imgcodecs/doc/reading_and_writing_images.html#imread)), and cleans it up using a variety of noise-reduction and edge-enhancement processes. It then analyzes each image, detects the edges of each particle, and then returns particle characteristics such as the average size, size range, count, and a distribution plot of the particles, as well as a circle-fit image for further use and processing. This package could be improved upon by adding more in-depth analysis of the particles, including roughness
 
