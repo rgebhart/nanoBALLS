@@ -15,6 +15,9 @@ This package is a tool to help analyze and learn the characteristics of particle
     * Not necessary for use of the code, but helps expedite analysis of large sets of images
 ---
 
+### Packages Included
+"List all of the .py files and a one sentence description of each. More details should be included in the other README"
+
 ### Project Organization (Clean this section before submission)
 "These are the files/__folders__ that will be visible when you go to our github url"
 * __Main Folder__: Contains all necessary .py files 
