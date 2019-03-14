@@ -1,0 +1,1 @@
+# This is the test folder. While the actual .py files will go one folder up in /nanoBALLS, the test versions of those files will go here. We should aim for about 3 unit tests per function, but one or two should be fine if the functions are fairly simplistic
