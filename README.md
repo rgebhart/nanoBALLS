@@ -20,10 +20,11 @@ _List all of the .py files and a one sentence.phrase description of each. More d
 
 ### Project Organization (Clean this section before submission)
 _These are the files/__folders__ that will be visible when you go to our github url_
-* __Main Folder__: Contains all necessary .py files 
-* __Jupyter Notebooks__: All old .ipynb files (not used for anything, just as record keeping)
+* __nanoBALLS__: Contains all necessary .py files 
+* __Notebooks__: All old .ipynb files (not used for anything, just as record keeping)
 * __Documentation__: Presentation slides, poster files, images, use cases, etc.
 * __Examples__: (maybe? filled out .ipynb notebook or something like that)
+* __SEM_Images__: (images to be used as examples, testing, optimization, etc.)
 * Main File: What the user interacts with (.ipynb? .py? GUI?)
 * LICENSE
 * README
