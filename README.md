@@ -25,7 +25,6 @@ _These are the files/__folders__ that will be visible when you go to our github 
 * __Documentation__: Presentation slides, poster files, images, use cases, etc.
 * __Examples__: (maybe? filled out .ipynb notebook or something like that)
 * __SEM_Images__: (images to be used as examples, testing, optimization, etc.)
-* Main File: What the user interacts with (.ipynb? .py? GUI?)
 * LICENSE
 * README
 
