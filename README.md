@@ -17,14 +17,17 @@ This package is a tool to help analyze and learn the characteristics of particle
 
 ### Packages Included
 _List all of the .py files and a one sentence.phrase description of each. More details of each function should be included in the other README_
+* __convert.py__: Takes SEM image as input, returns pixel length to nanometer conversion factor
 
 ### Project Organization (Clean this section before submission)
-_These are the files/__folders__ that will be visible when you go to our github url_
-* __nanoBALLS__: Contains all necessary .py files 
-* __Notebooks__: All old .ipynb files (not used for anything, just as record keeping)
-* __Documentation__: Presentation slides, poster files, images, use cases, etc.
-* __Examples__: (maybe? filled out .ipynb notebook or something like that)
-* __SEM_Images__: (images to be used as examples, testing, optimization, etc.)
+These are the folders contained in our repository
+* __nanoBALLS__: Main package folder, contains all necessary .py files 
+    * tests: Tests folder, contains files for unit testing
+* __Notebooks__: All .ipynb files, contain helpful markdown comments
+* __Documentation__: Presentation slides, use cases, etc.
+    * Poster: Files for poster
+* __Examples__: Notebook files, already run with output
+* __SEM_Images__: Extra SEM images, can be used for testing or optimization
 * LICENSE
 * README
 
@@ -33,12 +36,12 @@ _These are the files/__folders__ that will be visible when you go to our github 
 ### Example Usage
 _Example of image input, image output, and particle characteristics_
 
-#### Image Input:
-#### Image Output:
-#### Data Output:
+#### Image Input: _SEM image to be analyzed_
+#### Image Output: _Circle-fit SEM image_
+#### Data Output: _Particle characteristics of SEM image_
 
 ### Improvements 
-_Add more here probably_
+_Add more here probably_  
 This package could be improved upon by adding more in-depth analysis of the particles, including roughness.
 
 ---
