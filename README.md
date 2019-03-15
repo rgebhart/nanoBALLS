@@ -33,7 +33,9 @@ _These are the files/__folders__ that will be visible when you go to our github 
 ### Example Usage
 _Example of image input, image output, and particle characteristics_
 
-#### Image Input: 
+#### Image Input:
+#### Image Output:
+#### Data Output:
 
 ### Improvements 
 _Add more here probably_
