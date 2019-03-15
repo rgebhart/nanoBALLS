@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import segmentparser
 
-def Get_Ellipse(canny_image):
+def Get_Ellipse(canny_image,segmented_image,binary):
 """This function returns the major and the minor axis of the ellipse """
 	th, threshed = cv2.threshold(canny_image, 120, 255, cv2.THRESH_BINARY)
 	threshed = cv2.dilate(threshed, None)
