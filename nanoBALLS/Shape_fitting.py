@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
 import segmentparser
+import matplotlib.pyplot as plt
 
-def Get_Ellipse(canny_image,segmented_image,binary):
+def Get_Ellipse(canny_image,segmented_image):
 """This function returns the major and the minor axis of the ellipse """
 	th, threshed = cv2.threshold(canny_image, 120, 255, cv2.THRESH_BINARY)
 	threshed = cv2.dilate(threshed, None)
@@ -10,7 +11,7 @@ def Get_Ellipse(canny_image,segmented_image,binary):
 	cnts = cv2.findContours(threshed, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)[-2]
 	cv2.drawContours(canny_image, cnts, -1, (157, 0, 78), 1, cv2.LINE_AA)
 	elps=[]
-	Mean_Area = segmentparser.segmentparser(segmented_image,binary)["Area"].mean()
+	Mean_Area = segmentparser.segmentparser(segmented_image,threshed)["Area"].mean()
 	Lower_Area = Mean_Area - 0.01*Mean_Area
 	Higher_Area =  Mean_Area + 0.01*Mean_Area
 	for cnt in cnts:
@@ -39,7 +40,9 @@ def Predict_Shape(major_axis,minor_axis):
      return(circular_particle,ellipsoidal_particle)
 
 
-def Compare(major_axis,minor_axis):     
+def Compare(major_axis,minor_axis):
+""" This function gives the plot of major axis vs minor axis of the ellipse.
+	and compares it with the circle"""
     p=np.array(range(100))
 	q=np.array(range(100))
 	plt.scatter(major_axis,minor_axis)
