@@ -1,5 +1,7 @@
 import Shape_fitting
 
+canny_image = cv2.imread("nanoBALLS/SEM_Images/canny_image")
+mean_contour_Area = 1200
 def test_Get_Ellipse(canny_image,mean_contour_Area):
     """A funtion that carries the unittests for Get_Ellipse function"""
     assert type(Shape_fitting.Get_Ellipse(canny_image,mean_contour_Area))==list,"Expecting a list"
