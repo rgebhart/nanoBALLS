@@ -7,9 +7,10 @@ from skimage.morphology import watershed
 from scipy import ndimage
 import argparse
 from skimage.measure import label, regionprops
+import segmentparser
 
-def imageseg(Cont_Image)
-"""imageseg('Image Name')
+def imageseg(Cont_Image):
+    """imageseg('Image Name')
         
     This program takes an image that has been pre-proccessed by an edge finding script as its sole input, segments it, and spits out a segmented image file and a pandas dataframe of individual particle positions.
     
@@ -17,9 +18,9 @@ def imageseg(Cont_Image)
 
     ret, binary = cv2.threshold(Cont_Image,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
     distTransform = ndimage.distance_transform_bf(binary)
-    localMax = peak_local_max(distTransform, indices=False, min_distance=20,labels=thresh)
+    localMax = peak_local_max(distTransform, indices=False, min_distance=20,labels=binary)
     label = ndimage.label(localMax)[0]
-    segments = watershed(-D_cdt_cv, label, mask=thresh)
+    segments = watershed(-distTransform, label, mask=binary)
 
     segment_locations = segmentparser()
 
