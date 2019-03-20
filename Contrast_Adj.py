@@ -1,4 +1,4 @@
-def Adjustment(ImageName, Alpha, Beta):
+def adjustment(ImageName, Alpha = 1.7, Beta = 0):
     # Alphafactor for contrast control
     # Beta for brightness control
 
