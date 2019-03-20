@@ -6,8 +6,8 @@ from skimage.feature import peak_local_max
 from skimage.morphology import watershed
 from scipy import ndimage
 import argparse
-from skimage.measure import label, regionprops
-import segmentparser
+from skimage.measure import label
+from segmentparser import segmentparser
 
 def imageseg(Cont_Image):
     """imageseg('Image Name')
@@ -16,13 +16,14 @@ def imageseg(Cont_Image):
     
     This function works by creating a binary of an image that has been run through edge detection software, then finding the center of those particles through an Euclidean Distance function.  This was chosen over the typical watershed iterative erosion method because of its increased control in finding the center of particles, allowing for greater detection of overlapped and small particles.  """
 
+    proccessedImage = np.array(Cont_Image, dtype=np.uint8)
+    
     ret, binary = cv2.threshold(Cont_Image,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
     distTransform = ndimage.distance_transform_bf(binary)
     localMax = peak_local_max(distTransform, indices=False, min_distance=20,labels=binary)
     label = ndimage.label(localMax)[0]
     segments = watershed(-distTransform, label, mask=binary)
 
-    segment_locations = segmentparser()
+    segment_locations = segmentparser(segments, binary)
 
     return segments, segment_locations
-
