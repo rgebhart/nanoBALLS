@@ -18,7 +18,7 @@ setup(
     # to install, use:
     # pip install nanoballs
     
-    # It will live on PyPI here: (add PyPI url later)
+    # It will live on PyPI here: https://pypi.org/project/nanoballs/
     
     # The name of the project:
     name = 'nanoballs',
