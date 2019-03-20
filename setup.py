@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[13]:
-
-
 """A setuptools based setup module.
 
 See:
@@ -41,10 +35,3 @@ setup(
     # Specify package directories or use find_packages()
     packages = find_packages()
 )
-
-
-# In[ ]:
-
-
-
-
