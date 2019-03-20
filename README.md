@@ -18,6 +18,8 @@ This package is a tool to help analyze and learn the characteristics of particle
 ### Packages Included
 _List all of the .py files and a one sentence.phrase description of each. More details of each function should be included in the other README_
 * __convert.py__: Takes SEM image as input, returns pixel length to nanometer conversion factor
+* __segmentparser.py__: Iterates through a segmented image, pulling coordinates and areas of each segment, and returning them to the user in a pandas dataframe
+* __imageseg.py__: Takes an edge detected image file as an input, and uses the watershed algorithm to segment the image
 
 ### Project Organization (Clean this section before submission)
 These are the folders contained in our repository
