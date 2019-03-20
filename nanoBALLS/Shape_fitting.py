@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-def Get_Ellipse(canny_image,mean_contour_Area):
+def get_ellipse(canny_image,mean_contour_Area):
 	"""This function returns the major and the minor axis of the ellipse.
 	Arguments:
 	canny_image : The image whose edges are delected
@@ -32,7 +32,7 @@ def Get_Ellipse(canny_image,mean_contour_Area):
 		minor_axis=[z[0] for z in axes]
 	return(major_axis,minor_axis)
 
-def Predict_Shape(major_axis,minor_axis):
+def predict_shape(major_axis,minor_axis):
 	""" This function predicts whether the object detected is circle or ellispeIt is the short axis of the ellipse
 	It returns number of circles or the ellipse in the image
 	Arguments:
@@ -50,7 +50,7 @@ def Predict_Shape(major_axis,minor_axis):
 	return(circular_particle,ellipsoidal_particle)
 
 
-def Compare(major_axis,minor_axis):
+def compare(major_axis,minor_axis):
 	""" This function gives the plot of major axis vs minor axis of the ellipse
 	and compares it with the circle.
 	Arguments:
