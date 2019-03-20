@@ -47,4 +47,6 @@ This package could be improved upon by adding more in-depth analysis of the part
 ---
 
 ### Acknowledgements (Clean this section before submission)
-Beck, TAs, etc.
+Team nanoBALLS wishes to thank David Beck, Chad Curtis, and the rest of the teaching staff for guiding us through this proccess and teaching us enough to get us started.
+We also wish to thank Dr. Erika Buckle for collecting these images, the UW MAF for providing equipment and facility management, and Prof. Jim Pfaendtner for the project conception.
+Lastly, we wish to extend our gratitutudes to Professors Drobny, Eric Stuve, Samson Jenekhe, and Arka Majumdar for allowing us to participate in this class.
