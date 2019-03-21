@@ -18,7 +18,7 @@ This package is a tool to help analyze and learn the characteristics of particle
 ---
 
 ### Project Organization
-(Folders and `.py` files)
+(Folders, `.py`, and `.ipynb` files)
 ```
 documentation/ (Presentation slides, use cases, etc.)
     Poster/
