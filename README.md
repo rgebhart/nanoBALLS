@@ -1,6 +1,6 @@
 ![alt](https://i.imgur.com/5IlGL9R.jpg)  
 ## Package for SEM Image and Particle Analysis
-This package is a tool to help analyze and learn the characteristics of particles captured in an SEM image. It takes an SEM image (supported file types listed [here](https://docs.opencv.org/3.0-beta/modules/imgcodecs/doc/reading_and_writing_images.html#imread)), and cleans it up using a variety of noise-reduction and edge-enhancement processes. It then analyzes the image, detects the edges of each particle, and then returns particle characteristics such as the average size, size range, count, and a distribution plot of the particles, as well as a circle-fit image for further use and processing. 
+This package is a tool to help analyze and learn the characteristics of particles captured in an SEM image. It takes an SEM image (supported file types listed [here](https://docs.opencv.org/3.0-beta/modules/imgcodecs/doc/reading_and_writing_images.html#imread)), and cleans it up using a variety of noise-reduction and edge-enhancement processes. It then analyzes the image, detects the edges of each particle, and returns particle characteristics such as the average size, size range, count, and a distribution plot of the particles, as well as a circle-fit image for further use and processing. 
 
 ---
 
@@ -62,8 +62,6 @@ While the Hough Circle Fitting has proven robust in its implementation, the addi
 From a stretch goal perspective, this software could also be improved upon by adding more in-depth analysis of the particles, including roughness. Other ideas for improvement include breaking the image down and adjusting the contrast and brightness differently for different tiles within the image to best detect edges, and training a neural network to set these parameters for us.
 
 At the end of the day, though, a major criticism of our work is our lack of scientific benchmarking. While we can visually see whether or not the code seems to be operating as expected and is throwing out a logical visual output, we do not have a good numeric benchmark of how closely these segmentations, circle fits, etc. are representing our data. Development of a means of better benchmarking our results would help drive development of robust code in the future.
-
-
 
 ---
 
