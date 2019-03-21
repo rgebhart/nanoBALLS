@@ -24,7 +24,7 @@ setup(
     name = 'nanoballs',
     
     # Version number:
-    version = '1.0',
+    version = '1.0.2',
     
     # A one-line description or tagline of what your project does:
     description = 'A package for SEM image and particle analysis',
