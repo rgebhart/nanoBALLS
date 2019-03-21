@@ -7,6 +7,7 @@ from skimage.morphology import watershed
 from scipy import ndimage
 import argparse
 from skimage.measure import label
+from skimage.measure import regionprops
 
 def segmentparser(segmented_image, binary):
     """Docstring.
