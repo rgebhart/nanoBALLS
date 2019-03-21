@@ -1,7 +1,16 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-def GetCircles(img,dp,minDist,para1,para2,minRadius,maxradius):
+def get_circles(img,dp,minDist,para1,para2,minRadius,maxradius):
+    """ The following functions takes in the gray scale image and returns the radius of the circle and the image.
+    Arguments:
+    image: Gray scale image input
+    dp: Inverse ratio of the accumulator resolution to the image resolution.
+    minDist: Minimum distance between the centers of the detected circles.
+    para1 : It is the higher threshold of the two passed to the Canny edge 
+    para2 : It is the accumulator threshold for the circle centers at the detection stage.
+    minRadius : Minimum circle radius.
+    maxRadius : Maximum circle radius. """
     circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,dp,minDist,
                             param1=para1,param2=para2,minRadius=minRadius,maxRadius=maxradius)
     circles = np.uint16(np.around(circles))
