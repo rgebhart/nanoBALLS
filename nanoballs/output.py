@@ -16,9 +16,14 @@ from nanoballs import nanoballsfuncs as nan
 
 
 def output(name, mag=0, Alpha=1.7, Beta=0, dp=3, minDist=20, para1=150, para2=50, minradius=0, maxradius=30, mean_contour_Area=1200):
-
+    """Takes all user input, uses default values if none are provided
+    Returns images, plots, and data"""
+    
+    # Read file input
     imageInput = cv2.imread(name, 0)
     x = cv2.imread(name, 0)
+    
+    # Run through nanoballsfuncs
     convFactor = nan.getConv(name, mag)
     canny2, img2 = nan.adjustment(name, Alpha, Beta)
     copy_canny = canny2
@@ -29,19 +34,22 @@ def output(name, mag=0, Alpha=1.7, Beta=0, dp=3, minDist=20, para1=150, para2=50
     comp = nan.compare(major_axis, minor_axis)
     circular_particle, ellipsoidal_particle = nan.predict_shape(
         major_axis, minor_axis)
-
+    
+    # Calculate statistics from function outputs
     meanRadius = round(np.mean(circle_radii) * convFactor)
     stdRadius = round(np.std(circle_radii) * convFactor)
     maxRadius = round(np.max(circle_radii) * convFactor)
     minRadius = round(np.min(circle_radii) * convFactor)
     circleCount = np.size(major_axis)
     ellipseCount = ellipsoidal_particle
-
+    
+    # Create statistic dataframe and add statistics
     data = [['Mean', meanRadius], ['Standard Deviation', stdRadius], ['Maximum', maxRadius], [
         'Minimum', minRadius], ['Circle Count', circleCount], ['Ellipse Count', ellipseCount]]
     outputDF = pd.DataFrame(data, columns=['Statistic', 'Value'])
     display(outputDF)
-
+    
+    # Create plot, add images and ellipse plot
     fig, ax = plt.subplots(2, 2, figsize=(10, 10))
     ax[0, 0].imshow(x, cmap='gray')  # Image input
     ax[0, 0].set_title("Input Image")
