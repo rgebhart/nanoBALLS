@@ -7,5 +7,5 @@ def test_get_circles():
 	img = cv2.imread("C:/Users/Omkar/Desktop/nanoBALLS/sem_images/Opal_Tecopa_near_gem.jpg",0) 
 	img = cv2.medianBlur(img,5)
 	circles = circle.GetCircles(img,3,20,150,50,0,30)
-	assert type(circles) == tuple
+	assert type(circles) == tuple, "Expecting a tuple got something else"
 	return
