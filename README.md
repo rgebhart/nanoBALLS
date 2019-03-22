@@ -9,7 +9,7 @@ This package is a tool to help analyze and learn the characteristics of particle
 2. Import necessary packages
 
 ### How to Use
-Simply download the `nanoballs_UI.ipynb` and follow the instructions!
+Simply download `nanoballs_UI.ipynb` and follow the instructions!
 
 ### Software Dependencies
 * __Python3.6__
