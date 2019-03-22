@@ -5,6 +5,7 @@ import pandas as pd
 from skimage.measure import regionprops
 import imageseg
 import random
+import unittest
 
 # Creating test inputs for testing purposes.
 img = cv2.imread('SEM_Images/Opal_Tecopa_near_gem.jpg')
@@ -31,11 +32,11 @@ def test_segmentparser():
     # Testing to make sure that all returned values are real
     # ----------------------
     # Making sure the x coordinate is within the image
-    assert int(output.loc[location,1]) > 0
+    assertGreater(int(output.loc[location,1]), 0)
     # Making sure the y coordinate is within the image
-    assert int(output.loc[location,2]) > 0
+    assertGreater(int(output.loc[location,2]), 0)
     # Any area should be greater than zero
-    assert int(output.loc[location,3]) > 0
+    assertGreater(int(output.loc[location,3]), 0)
 
 def test_imageseg():
     segments, segment_locations = imageseg.imageseg(thresh)
