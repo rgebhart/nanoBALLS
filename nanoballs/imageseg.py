@@ -59,8 +59,8 @@ def imageseg(Cont_Image):
     kernel = np.ones((5,6), np.uint8)
     opening = cv2.morphologyEx(Cont_Image, cv2.MORPH_OPEN, kernel)
     canny = cv2.Canny(opening,100,150,3,L2gradient=True)
-    
     ret, binary = cv2.threshold(Cont_Image,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+
     distTransform = ndimage.distance_transform_bf(binary)
     localMax = peak_local_max(distTransform, indices=False, min_distance=20,labels=binary)
     label = ndimage.label(localMax)[0]
