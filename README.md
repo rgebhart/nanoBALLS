@@ -49,7 +49,7 @@ README.md
 | (1) Image Input and Pre-Processing | ![](https://imgur.com/iYQr9SA.jpg) | ![](https://imgur.com/q0LIoAy.jpg) |
 | (2) Segmentation | ![](https://i.imgur.com/xNhUkoP.jpg) | ![](https://imgur.com/qXAATw7.jpg) |
 | (3) Shape Fitting | ![](https://imgur.com/ha1j9Ut.jpg) | ![](https://imgur.com/genut41.jpg) |
-| (4) Data Output | ![](https://imgur.com/RTWHMLR.jpg) | ![](https://imgur.com/qWlVgq6.jpg) |
+| (4) Data Output | ![](https://imgur.com/RTWHMLR.jpg) | ![](https://imgur.com/T8zl76j.jpg) (_Statistics refer to the particle radius unless otherwise noted_) |
 
 ---
 
