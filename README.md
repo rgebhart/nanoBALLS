@@ -8,6 +8,9 @@ This package is a tool to help analyze and learn the characteristics of particle
 1. `pip install nanoballs`
 2. Import necessary packages
 
+### How to Use
+Simply download the `nanoballs_UI.ipynb` and follow the instructions!
+
 ### Software Dependencies
 * __Python3.6__
 * __Packages__: argparse, Matplotlib, NumPy, OpenCV, pandas, scikit-learn, SciPy
@@ -18,29 +21,24 @@ This package is a tool to help analyze and learn the characteristics of particle
 ---
 
 ### Project Organization
-(Folders, `.py`, and `.ipynb` files)
 ```
 documentation/ (Presentation slides, use cases, etc.)
     Poster/
-examples/ (Notebook files, already run with output)
 nanoballs/ (Main package folder, contains all necessary .py files)
     tests/ (Tests folder, contains files for unit testing)
-        test_nanoballs.py
         __init__.py
         README.md
-    circle.py
-    contrast_adj.py
-    convert.py
-    imageseg.py
-    segmentparser.py
-    shape_fitting.py
     __init__.py
+    nanoballsfuncs.py
+    output.py
     README.md
 notebooks/ (All .ipynb files, contain helpful markdown comments)
 sem_images/ (Extra SEM images, can be used for testing or optimization)
+nanoballs_UI.ipynb
+setup.py
 LICENSE.txt
 README.md
-setup.py
+
 ```
 
 ---
@@ -51,7 +49,7 @@ setup.py
 | (1) Image Input and Pre-Processing | ![](https://imgur.com/iYQr9SA.jpg) | ![](https://imgur.com/q0LIoAy.jpg) |
 | (2) Segmentation | ![](https://i.imgur.com/xNhUkoP.jpg) | ![](https://imgur.com/qXAATw7.jpg) |
 | (3) Shape Fitting | ![](https://imgur.com/ha1j9Ut.jpg) | ![](https://imgur.com/genut41.jpg) |
-| (4) Data Output | ![](https://imgur.com/RTWHMLR.jpg) | __This is where the table will go with mean, std.dev, etc.__ |
+| (4) Data Output | ![](https://imgur.com/RTWHMLR.jpg) | ![](https://imgur.com/qWlVgq6.jpg) |
 
 ---
 
