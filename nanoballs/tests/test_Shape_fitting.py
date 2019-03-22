@@ -27,7 +27,7 @@ def test_get_ellipse():
     return
 
 def test_predict_shape():
-    img = cv2.imread("Opal_Tecopa_near_gem.jpg")
+    img = cv2.imread("sem_images/Opal_Tecopa_near_gem.jpg")
     img = np.array(img, dtype=np.uint8)
     kernel = np.ones((5,5), np.uint8)
     alpha = 1.7 # Simple contrast control
