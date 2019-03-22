@@ -10,7 +10,23 @@ from skimage.measure import label
 from skimage.measure import regionprops
 
 def segmentparser(segmented_image, binary):
-    """Docstring.
+    """Takes an edge detected image and an image binary and returns a Pandas dataframe of the x-y coordinates and area of the image segments.  Both the edge detected image and the binary of the image should be 1D image files of the same size.
+        
+        Code courtesy Chad Curtis, pulled from L9 Image Proccessing Lecture.
+        
+        Parameters:
+        -----------
+        Edge Detected Image: 2D array
+        Output of an edge detection program/canny edge detection algorithm.
+        Image Binary: 2D array
+        Bitmap/binary image (should only contain 1's and 0's.
+        segment_properties: Pandas dataframe, four columns
+        Example:
+        X               Y               Area
+        0       436.629412      436.629412      170.0
+        1       55.029162       55.029162       4835.0
+        2       662.983593      662.983593      1219.0
+        ...     ...             ...             ...
     
     Code courtesy Chad Curtis, pulled from L9 Image Proccessing Lecture"""
     
@@ -35,7 +51,9 @@ def imageseg(Cont_Image):
         
     This program takes an image that has been pre-proccessed by an edge finding script as its sole input, segments it, and spits out a segmented image file and a pandas dataframe of individual particle positions.
     
-    This function works by creating a binary of an image that has been run through edge detection software, then finding the center of those particles through an Euclidean Distance function.  This was chosen over the typical watershed iterative erosion method because of its increased control in finding the center of particles, allowing for greater detection of overlapped and small particles.  """
+    This function works by creating a binary of an image that has been run through edge detection software, then finding the center of those particles through an Euclidean Distance function.  This was chosen over the typical watershed iterative erosion method because of its increased control in finding the center of particles, allowing for greater detection of overlapped and small particles.
+    
+    Methodology ideas pulled from the SciKit Image example pages (https://scikit-image.org) as well as the Open CV example pages (https://opencv.org) and Adrian Rosebrock's blog (https://www.pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/)."""
 
     proccessedImage = np.array(Cont_Image, dtype=np.uint8)
     
