@@ -1,4 +1,4 @@
-from nanoballs import shape_fitting
+from nanoballs import Shape_fitting
 import cv2
 import numpy as np
 img = cv2.imread("C:/Users/Omkar/Desktop/nanoBALLS/sem_images/Opal_Tecopa_near_gem")
@@ -17,7 +17,7 @@ minor_axis=x[1]
 
 def test_get_ellipse():
     """A funtion that carries the unittests for Get_Ellipse function """
-    assert type(shape_fitting.get_ellipse(canny_image,mean_contour_Area))==tuple,"Expecting a tuple"
+    assert type(Shape_fitting.get_ellipse(canny_image,mean_contour_Area))==tuple,"Expecting a tuple"
     major_axis=x[0]
     minor_axis=x[1]
     assert len(major_axis)==len(minor_axis),"length of the both the lists is not same"
@@ -28,5 +28,5 @@ def test_get_ellipse():
 def test_predict_shape():
     """A funtion that carries the unittests for Predict_Shape function """
     assert type(shape_fitting.predict_shape(major_axis,minor_axis))==tuple,"Expecting a tuple"
-    assert shape_fitting.predict_shape(major_axis,minor_axis)[0]+shape_fitting.predict_shape(major_axis,minor_axis)[1]==len(major_axis),"All the elements must be classified as circle or ellipse "
+    assert Shape_fitting.predict_shape(major_axis,minor_axis)[0]+Shape_fitting.predict_shape(major_axis,minor_axis)[1]==len(major_axis),"All the elements must be classified as circle or ellipse "
     return
