@@ -37,7 +37,6 @@ nanoballs_UI.ipynb
 setup.py
 LICENSE.txt
 README.md
-
 ```
 
 ---
