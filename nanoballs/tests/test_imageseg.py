@@ -32,11 +32,11 @@ def test_segmentparser():
     # Testing to make sure that all returned values are real
     # ----------------------
     # Making sure the x coordinate is within the image
-    assertGreater(int(output.loc[location,1]), 0)
+    assert greater(int(output.loc[location,1]), 0)
     # Making sure the y coordinate is within the image
-    assertGreater(int(output.loc[location,2]), 0)
+    assert greater(int(output.loc[location,2]), 0)
     # Any area should be greater than zero
-    assertGreater(int(output.loc[location,3]), 0)
+    assert greater(int(output.loc[location,3]), 0)
 
 def test_imageseg():
     segments, segment_locations = imageseg.imageseg(thresh)
