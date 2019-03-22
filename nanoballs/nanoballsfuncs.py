@@ -5,7 +5,6 @@ import numpy as np
 import os
 import pandas as pd
 import PIL.Image as Image
-import pytesseract
 
 from matplotlib import pyplot as plt
 from skimage.feature import peak_local_max
@@ -51,17 +50,18 @@ def adjustment(ImageName, Alpha=1.7, Beta=0):
     opening2 = cv2.morphologyEx(img2, cv2.MORPH_OPEN, kernel)
     canny2 = cv2.Canny(opening2, 100, 150, 3, L2gradient=True)
 
-    return canny2
+    return canny2, img2
 
 
-def getMag(name):
+def getMag(name, mag=0):
     img = cv2.imread(name)  # Image to be analyzed
 
     while True:
         try:
+            import pytesseract
             pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files (x86)\Tesseract-OCR\tesseract'
             # Crops image to magn. details, increases reliability of OCR
-            magCrop = img[443:465, 160:243]
+            magCrop = img[443:465, 168:240]
             # Inverts colors, easier for OCR software to read
             magCropInv = cv2.bitwise_not(magCrop)
             mag = int(pytesseract.image_to_string(Image.fromarray(magCropInv))[
@@ -81,18 +81,21 @@ def getMag(name):
                 break
             except:
                 #**********USER INPUT**********
-                mag = 35000
                 print("Using user input...")
                 print(
                     "If you did not manually enter this magnification level, results will likely be wrong!")
+                mag = mag
                 break
     return mag
 
 
-def getConv(name):
-    mag = getMag(name)
+def getConv(name, mag=0):
+    mag = getMag(name, mag)
 
-    conv = pd.read_csv('ConversionFactors.csv')  # Tabulated conversion factors
+    conv = pd.DataFrame([[0, 0, 0, 0], [35000, 157, 2000, 12.7388535], [25000, 111, 2000, 18.01801802], [15000, 167, 5000, 29.94011976], [
+                        12000, 133, 5000, 37.59398496], [10000, 111, 5000, 45.04504505], [6500, 15, 10000, 68.96551724]])
+    conv.columns = ['Mag', 'Pixels', 'Length [nm]', 'Conversion']
+
     # Finds row that matches the magnification value
     row = conv.loc[conv['Mag'] == mag]
     convFactor = row.iloc[0]['Conversion']  # Gets conversion factor from row
@@ -101,14 +104,7 @@ def getConv(name):
     print("Conversion Factor [nm/pixel]: " + str(convFactor))
     print("-----------------------------------------------------")
 
-    # Radius of a particle in pixels (This number should be coming from
-    # another function somewhere I think)
-    pixValue = 10
-    # Use conversion factor to get particle radius in nanometers
-    nmValue = pixValue * convFactor
-
-    print("Length in [nm]:")
-    return nmValue
+    return convFactor
 
 
 def segmentparser(segmented_image, binary):
@@ -211,6 +207,7 @@ def compare(major_axis, minor_axis):
     Arguments:
     major_axis = It is the long axis of the ellipse
     minor_axis = It is the short axis of the ellipse"""
+    plt.clf()
     p = np.array(range(100))
     q = np.array(range(100))
     plt.scatter(major_axis, minor_axis)
@@ -222,3 +219,34 @@ def compare(major_axis, minor_axis):
     plt.title("Plot of Minimum vs Maximum")
     plt.legend(["Theoretical circle", "Predicted Circle"])
     return
+
+
+def output(name, mag=0, Alpha=1.7, Beta=0, dp=3, minDist=20, para1=150, para2=50, minradius=0, maxradius=30, mean_contour_Area=1200):
+    convFactor = getConv(name, mag)
+    preImage, cont = adjustment(name, Alpha, Beta)
+
+    img = cv2.imread(name, 0)
+
+    circle_radii, circ_img = get_circles(
+        img, dp, minDist, para1, para2, minradius, maxradius)
+    major_axis, minor_axis = get_ellipse(preImage, mean_contour_Area)
+    segments, segment_locations = imageseg(img)
+
+    circular_particle, ellipsoidal_particle = predict_shape(
+        major_axis, minor_axis)
+    comp_plot = compare(major_axis, minor_axis)
+
+    meanRadius = round(np.mean(circle_radii) * convFactor)
+    stdRadius = round(np.std(circle_radii) * convFactor)
+    maxRadius = round(np.max(circle_radii) * convFactor)
+    minRadius = round(np.min(circle_radii) * convFactor)
+
+    data = [['Mean', meanRadius], ['Standard Deviation', stdRadius],
+            ['Maximum', maxRadius], ['Minimum', minRadius]]
+    outputDF = pd.DataFrame(data, columns=['Statistic', 'Value'])
+
+    fig, ax = plt.subplots(4, 2, figsize=(20, 10))
+    ax[0, 0].imshow(imageFile)
+    ax[0, 1].imshow(cont)
+
+    return outputDF, fig
