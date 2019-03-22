@@ -56,6 +56,9 @@ def imageseg(Cont_Image):
     Methodology ideas pulled from the SciKit Image example pages (https://scikit-image.org) as well as the Open CV example pages (https://opencv.org) and Adrian Rosebrock's blog (https://www.pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/)."""
 
     proccessedImage = np.array(Cont_Image, dtype=np.uint8)
+    kernel = np.ones((5,6), np.uint8)
+    opening = cv2.morphologyEx(Cont_Image, cv2.MORPH_OPEN, kernel)
+    canny = cv2.Canny(opening,100,150,3,L2gradient=True)
     
     ret, binary = cv2.threshold(Cont_Image,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
     distTransform = ndimage.distance_transform_bf(binary)
