@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import pandas as pd
 from skimage.measure import regionprops
-import segmentparser
+import imageseg
 import random
 
 # Creating test inputs for testing purposes.
@@ -20,7 +20,7 @@ labels_bf_cv = watershed(-D_bf_cv, markers_cv, mask=thresh)
 
 def test_segmentparser():
     """Unit test for the segmentparser.py function"""
-    output = segmentparser(labels_bf_cv, thresh)
+    output = imageseg.segmentparser(labels_bf_cv, thresh)
     # Creating some random numbers to play with.
     rows, columns = output.shape
     location = random.randint(1,rows-1)
@@ -38,7 +38,7 @@ def test_segmentparser():
     assert int(output.loc[location,3]) > 0
 
 def test_imageseg():
-    segments, segment_locations = imageseg(thresh)
+    segments, segment_locations = imageseg.imageseg(thresh)
     
     # Calculate the size of the original image
     x_thresh, y_thresh = thresh.size
