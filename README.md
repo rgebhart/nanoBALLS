@@ -22,8 +22,7 @@ Simply download `nanoballs_UI.ipynb` and follow the instructions!
 
 ### Project Organization
 ```
-documentation/ (Presentation slides, use cases, etc.)
-    Poster/
+documentation/ (Presentation slides, use cases, poster material, etc.)
 nanoballs/ (Main package folder, contains all necessary .py files)
     tests/ (Tests folder, contains files for unit testing)
         __init__.py
